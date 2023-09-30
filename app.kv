@@ -1,0 +1,72 @@
+BoxLayout:
+    orientation: "vertical"
+    BoxLayout:
+        orientation: "horizontal"
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_x: 0.3
+
+            Label:
+                text: "Sort by:"
+                size_hint_y: 0.1
+
+            Spinner:
+                id: sort_spinner
+                size_hint_y: 0.1
+                text: "Name"
+                values: ("Name", "Country", "Priority", "Visited")
+
+            Label:
+                text: "Add New Place..."
+                size_hint_y: 0.1
+            Label:
+                text: "Name:"
+                size_hint_y: 0.1
+            TextInput:
+                id: name_input
+                multiline: False
+                size_hint_y: 0.1
+            Label:
+                text: "Country:"
+                size_hint_y: 0.1
+            TextInput:
+                id: country_input
+                multiline: False
+                size_hint_y: 0.1
+            Label:
+                text: "Priority:"
+                size_hint_y: 0.1
+            TextInput:
+                id: priority_input
+                multiline: False
+                size_hint_y: 0.1
+
+            Button:
+                text: "Add Place"
+                size_hint_y: 0.1
+                on_release: app.add_place()
+
+            Button:
+                text: "Clear"
+                size_hint_y: 0.1
+                on_release: app.clear_fields()
+        BoxLayout:
+            orientation: "vertical"
+            Label:
+                id: top_status_label
+                size_hint_y: 0.1
+                text: "Places to visit: 0"
+            ScrollView:
+                GridLayout:
+                    id: places_grid
+                    cols: 1
+                    size_hint_y: None
+                    height: self.minimum_height
+                    row_default_height: 150
+                    row_force_default: True
+            Label:
+                id: bottom_status_label
+                size_hint_y: 0.1
+                text: "Welcome to Travel Tracker"
+
